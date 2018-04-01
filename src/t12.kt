@@ -11,7 +11,7 @@ fun main(args: Array<String>) {
 //        i++
 //        println(i)
 //    }
-    println(factorsNumber(100000).size)
+    println(factorsNumber(28).size)
 }
 
 // https://www.mathsisfun.com/numbers/factors-all-tool.html
