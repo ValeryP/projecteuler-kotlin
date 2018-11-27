@@ -4,14 +4,30 @@
  * Created on 4/1/18
  */
 
-fun main(args: Array<String>) {
-//    println(egg(100, 8))
-        findBestDelta()
+fun main(args: Array<String>) { //    println(egg(100, 8))
+    //    findBestDelta() //    print(first("Zsd"))
+    //    println(pointInCircle(20.0, 0.0, 0.0, 14.0, 14.0))
+    premutate("ABC")
+}
+
+fun premutate(s: String) {
+    fun premute(pref: String, text: String) {
+        if (text.isEmpty()) {
+            println(pref)
+        } else {
+            for (i in 0 until text.length) {
+                val newPref = pref + text[i]
+                val newText = text.slice(0 until i).plus(text.slice(i + 1 until text.length))
+                premute(newPref, newText)
+            }
+        }
+    }
+    premute("", s)
 }
 
 fun first(a: String): Boolean = a.isNotEmpty() && a.toCharArray()[0].toInt() in 65..90
 
-fun pointInACircle(radius: Double, Cx: Double, Cy: Double, Px: Double, Py: Double): Boolean =
+fun pointInCircle(radius: Double, Cx: Double, Cy: Double, Px: Double, Py: Double): Boolean =
     Math.pow((Px - Cx), 2.0) + Math.pow((Py - Cy), 2.0) <= radius * radius
 
 fun findBestDelta() {
@@ -29,20 +45,17 @@ fun egg(x: Int, delta: Int): Int {
     var steps = 0
     for (i in delta..100 step delta) {
         steps++
-//        println("$steps: $i")
         when {
             i >= x -> {
                 val start = if (i - delta <= 0) 1 else i - delta + 1
                 for (j in start + 1..i) {
                     steps++
-//                    println("$steps: $j")
                     if (j >= x) return steps
                 }
             }
             i >= 100 - delta -> {
                 for (j in i + 1..100) {
                     steps++
-//                    println("$steps: $j")
                     if (j >= x - 1) return steps
                 }
             }
