@@ -10,7 +10,7 @@ fun main(args: Array<String>) { //    println(egg(100, 8))
     premutate("ABC")
 }
 
-fun premutate(s: String) {
+private fun premutate(s: String) {
     fun premute(pref: String, text: String) {
         if (text.isEmpty()) {
             println(pref)
