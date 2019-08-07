@@ -12,7 +12,7 @@ once. For example, 2143 is a 4-digit pandigital and is also prime.
 What is the largest n-digit pandigital prime that exists?
 */
 
-fun permutateUntil(size: Int): MutableList<Long> {
+fun permutateUntil(size: Int, isStartFromZero: Boolean = false): MutableList<Long> {
     val accum = mutableListOf<Long>()
 
     fun premute(pref: String, text: String) {
@@ -27,7 +27,8 @@ fun permutateUntil(size: Int): MutableList<Long> {
         }
     }
 
-    premute("", (1 until size).joinToString(""))
+    val startingPoint = if (isStartFromZero) 0 else 1
+    premute("", (startingPoint until size).joinToString(""))
     return accum
 }
 
