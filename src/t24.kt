@@ -14,7 +14,7 @@
    * Answer: 2783915460
  */
 
-fun main(args: Array<String>) {
+fun main() {
     val acum = mutableMapOf<Int, String>()
 
     fun premute(pref: String, text: String) {
