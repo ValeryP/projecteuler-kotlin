@@ -18,13 +18,12 @@ fun main() {
     val accum = hashMapOf<Int, Int>()
     for (p in 3 until 1000) {
         for (c in 3 until p) {
-            for (b in 1 until p - c) {
+            for (b in 3 until p - c) {
                 val a = p - c - b
                 if (a >= c || b >= c || a * a + b * b != c * c) continue
-                println("$p | $c, $b, $a")
                 accum[p] = accum.getOrDefault(p, 0) + 1
             }
         }
     }
-    println(accum.entries.sortedBy { it.value })
+    println(accum.entries.maxBy { it.value }!!.key)
 }
