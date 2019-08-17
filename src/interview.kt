@@ -1,3 +1,5 @@
+import kotlin.math.pow
+
 /*
  * @author Valeriy Palamarchuk
  * @email valeriij.palamarchuk@gmail.com
@@ -28,7 +30,7 @@ private fun premutate(s: String) {
 fun first(a: String): Boolean = a.isNotEmpty() && a.toCharArray()[0].toInt() in 65..90
 
 fun pointInCircle(radius: Double, Cx: Double, Cy: Double, Px: Double, Py: Double): Boolean =
-    Math.pow((Px - Cx), 2.0) + Math.pow((Py - Cy), 2.0) <= radius * radius
+    (Px - Cx).pow(2.0) + (Py - Cy).pow(2.0) <= radius * radius
 
 fun findBestDelta() {
     for (i in 1..100) {
