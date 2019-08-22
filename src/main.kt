@@ -4,5 +4,5 @@
  * Created on 8/17/19
  */
 fun main() {
-    T50()
+    T26()
 }

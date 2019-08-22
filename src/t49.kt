@@ -8,7 +8,8 @@ import kotlin.math.abs
  */
 
 
-@Suppress("DuplicatedCode") fun permutate(value: Int): MutableSet<Int> {
+@Suppress("DuplicatedCode")
+fun permutate(value: Int): MutableSet<Int> {
     val accum = mutableSetOf<Int>()
     fun premute(pref: String, text: String) {
         if (text.isEmpty()) {
@@ -42,10 +43,10 @@ private fun getIncreasingSequence(it: List<Int>): List<Set<Int>> {
 
 fun main() {
     val primes =
-        generatePrimes(9999L).filter { it > BigInteger.valueOf(1000) }.map { it.intValueExact() }
+            generatePrimes(9999L).filter { it > BigInteger.valueOf(1000) }.map { it.intValueExact() }
     val result = primes.asSequence()
-        .map { permutate(it).filter { permutation -> primes.contains(permutation) } }
-        .filter { it.size >= 3 }.map { getIncreasingSequence(it) }.filter { it.isNotEmpty() }.last()
-        .first()
+            .map { permutate(it).filter { permutation -> primes.contains(permutation) } }
+            .filter { it.size >= 3 }.map { getIncreasingSequence(it) }.filter { it.isNotEmpty() }.last()
+            .first()
     println(result.toSortedSet().joinToString(""))
 }
